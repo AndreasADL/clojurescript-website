@@ -5,24 +5,83 @@
 ;; Application state
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defonce app-state (atom {:text "How does app-state work?!"}))
+(defonce app-state (atom {:website {:title "Bismarckstraße 4 Wohnheim"
+                                    :description "Welcome to our Studentenwohneheim!"}}))
 
 ;; Content components
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defn main-page []
+(defn welcome-page []
  [:section {:class "section"}
  
    [:h1
     {:class "title"}
-    "Welcome to ClojureBridge"]
+    "Welcome to Bismarckstraße"]
  
     ;; Content will just use HTML tags directly, useful when you have no specific styles
     ;; https://bulma.io/documentation/elements/content/
  
    [:div {:class "content"}
     [:p
-     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sed enim ante. Nullam consectetur, sapien in rutrum facilisis, augue velit finibus est, at lobortis odio eros sollicitudin risus. Nullam mollis, metus a varius volutpat, metus elit mollis est, finibus pretium dui enim non velit. Praesent sit amet volutpat nulla. Sed volutpat venenatis nisi id sagittis. Nunc nec efficitur mi. Duis consequat sapien ultricies quam bibendum, elementum faucibus sapien bibendum. Morbi diam elit, gravida iaculis metus vitae, ullamcorper mattis mi. Maecenas luctus lorem metus. Maecenas eleifend nisl sit amet felis accumsan, sit amet tincidunt turpis consequat. Cras non molestie ante, a pellentesque dui."]
-    [:p
-     "Vivamus ullamcorper at orci ac tincidunt. Vivamus tincidunt sed erat nec consequat. Donec venenatis lorem justo, eget imperdiet arcu ultrices vitae. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec congue tempor posuere. Sed nec nisl mauris. Maecenas elementum quam justo, vitae auctor felis dapibus a. Phasellus leo justo, mattis a auctor tempus, facilisis vel tellus. Etiam at scelerisque justo, ac facilisis purus. Duis in leo pretium purus bibendum ultricies ac vitae lectus. Proin nec mi nec urna sollicitudin iaculis. In a orci felis. Sed luctus posuere luctus. Cras id euismod orci, id mollis nibh. Vestibulum et tellus quis lorem placerat scelerisque non et nisl. Ut dictum lacus nulla, sit amet ultricies eros pharetra vitae. "]
+     "As a new-be in the dormitory you will most likely want to have all of the following:"]
+
+    [:ul
+     [:li "Get WiFi running"]
+     [:li "Meet your floor-mates"]
+     [:li "Know where to get help"] 
+     [:li "Understand what these Germans are going on about (a.k.a. a crash course in German culture)"]
+     [:li "Find out about or next HVV (house meeting)"]
+     [:li "Look at our events calendar"]
+     ]
+    ;; design choice: make a separate page for each? Or make a big state to plug into a page function...?
+    [:figure
+     [:img {:src "images/bismarck.png"}]]
     ]])
+
+(defn website-title []
+  [:section {:class "jumbotron practicalli-jumbotron"}
+   [:h1 (get-in @app-state [:website :title])]
+   [:h4 (get-in @app-state [:website :description])]])
+
+(defn navigation-top
+  "A responsive navigation that is fixed to the top of the page"
+  []
+
+  [:nav {:class      "navbar is-fixed-top is-dark"
+         :role       "navigation"
+         :aria-label "main navigation"}
+   [:div {:class "container"}
+    [:div {:class "navbar-brand"}
+     [:a {:class "navbar-item"
+          :href  "/"}
+      [:img {:src "images/bismarck.png"}]]
+     [:span {:class       "navbar-burger burger"
+             :data-target "navbarClojureBridge"}
+      ;; Empty spans needed for navbar burger
+      [:span] [:span] [:span]]]
+
+    [:div {:id    "navbarClojureBridge"
+           :class "navbar-menu"}
+     [:div {:class "navbar-start"}
+      [:a {:class "navbar-item"
+           :href  "#overview"} "Overview"]
+      [:a {:class "navbar-item"
+           :href  "#events"} "Events"]
+      [:a {:class "navbar-item"
+           :href  "#wifi"} "WiFi"]
+      [:a {:class "navbar-item"
+           :href  "#getting-help"} "Getting Help"]
+      [:a {:class "navbar-item"
+           :href  "#learn-german"} "Learn German"]
+      [:a {:class "navbar-item"
+           :href  "#useful-links"} "Useful Links"]
+      [:a {:class "navbar-item"
+           :href  "#sponsors"} "Sponsors"]
+
+      [:span {:class "navbar-item"}
+       [:a {:class  "button is-inverted"
+            :target "_blank"
+            :href   "https://github.com/AndreasADL/clojurescript-website/tree/main/docs"}
+        [:span {:class "icon"}
+         [:i {:class "fab fa-github"}]]
+        [:span "Issues/PRs"]]]]]]])

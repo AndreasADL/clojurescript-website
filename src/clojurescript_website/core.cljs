@@ -25,14 +25,17 @@
 ;; Content components
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defn landing-page []
-  [content/main-page])
+(defn main-page []
+  [:div 
+   [content/navigation-top]
+  ;;  [content/website-title]
+   [content/welcome-page]])
 
 ;; System
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defn mount [el]
-  (rdom/render [landing-page] el))
+  (rdom/render [main-page] el))
 
 (defn get-app-element []
   (gdom/getElement "app"))
