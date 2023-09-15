@@ -43,45 +43,72 @@
    [:h1 (get-in @app-state [:website :title])]
    [:h4 (get-in @app-state [:website :description])]])
 
-(defn navigation-top
-  "A responsive navigation that is fixed to the top of the page"
-  []
 
-  [:nav {:class      "navbar is-fixed-top is-dark"
-         :role       "navigation"
-         :aria-label "main navigation"}
-   [:div {:class "container"}
-    [:div {:class "navbar-brand"}
-     [:a {:class "navbar-item"
-          :href  "/"}
-      [:img {:src "images/bismarck.png"}]]
-     [:span {:class       "navbar-burger burger"
-             :data-target "navbarClojureBridge"}
-      ;; Empty spans needed for navbar burger
-      [:span] [:span] [:span]]]
+(defn home-page []
+  [welcome-page])
 
-    [:div {:id    "navbarClojureBridge"
-           :class "navbar-menu"}
-     [:div {:class "navbar-start"}
-      [:a {:class "navbar-item"
-           :href  "#overview"} "Overview"]
-      [:a {:class "navbar-item"
-           :href  "#events"} "Events"]
-      [:a {:class "navbar-item"
-           :href  "#wifi"} "WiFi"]
-      [:a {:class "navbar-item"
-           :href  "#getting-help"} "Getting Help"]
-      [:a {:class "navbar-item"
-           :href  "#learn-german"} "Learn German"]
-      [:a {:class "navbar-item"
-           :href  "#useful-links"} "Useful Links"]
-      [:a {:class "navbar-item"
-           :href  "#sponsors"} "Sponsors"]
+(defn events-page []
+  [:section.section
+   [:h1.title "Events at Student Dormitory"]
+   [:div.content
+    [:p "Welcome to the student-run student dormitory! We host exciting events in our cozy bar."]
+    [:p "Stay informed by joining our WhatsApp group and connecting with our Event Mentor."]
+    [:p "For event details and schedules, check the information posted next to the entrance door."]
+    [:figure
+     [:img {:src "images/events.jpg" :alt "Events at the dorm"}]]]])
 
-      [:span {:class "navbar-item"}
-       [:a {:class  "button is-inverted"
-            :target "_blank"
-            :href   "https://github.com/AndreasADL/clojurescript-website/tree/main/docs"}
-        [:span {:class "icon"}
-         [:i {:class "fab fa-github"}]]
-        [:span "Issues/PRs"]]]]]]])
+(defn wifi-page []
+  [:section.section
+   [:h1.title "Internet Access Information"]
+   [:div.content
+    [:p "Getting connected to the internet is crucial. Follow these steps to set up your Wi-Fi:"]
+    [:ol
+     [:li "Refer to the instructions for internet access at:"
+      [:a {:href "https://stw-bonn.de/en/support/firststeps/start"} "stw-bonn.de"]]
+     [:li "Ensure you have your rental contract ready and own a router. We recommend models found "
+      [:a {:href "https://stw-bonn.de/en/support/internet/wlan_basic"} "here"]]
+     [:li "Consider reaching out to your neighbors for help with internet setup. You might make a new friend! ;-)"]
+     [:li "For additional assistance, contact our internet mentors. You can find their details by the front door."]]
+    [:p "Stay connected and enjoy your time at the dorm!"]
+    [:figure
+     [:img {:src "images/wifi.jpg" :alt "Wi-Fi setup"}]]]])
+
+(defn help-page []
+  [:section.section
+   [:h1.title "Need Help? We've Got You Covered!"]
+   [:div.content
+    [:p "Don't hesitate to reach out if you need assistance during your stay. Here are some options to get help:"]
+    [:ul
+     [:li "Ask your floor neighbors for help. Most people are kind and ready to assist. Getting to know your neighbors is key to a pleasant experience. Check if your floor has a WhatsApp group to connect with others."]
+     [:li "Contact the Dorm Mentors for help with just about anything. You can find their responsibilities and contact details posted by the front door."]
+     [:li "For various matters, you can ask Herr J. Jackisch, our House master. For quicker responses, consider writing in German (you can use Deepl.com for translation), keep emails concise, clear, and limit requests to one per email. This helps ensure a swift response."]
+     [:li "For general inquiries and support, you can also reach out to Studierendenwerk, who provide services for students in need."]]
+    [:p "Remember, we're here to make your stay comfortable and enjoyable. Don't hesitate to ask for help!"]
+    [:figure
+     [:img {:src "images/help.jpg" :alt "Getting help at the dorm"}]]]])
+
+(defn learn_german-page []
+  [:section.section
+   [:h1.title "Learn German, Embrace the Culture!"]
+   [:div.content
+    [:p "While staying in a foreign country, learning the language can be both fun and incredibly useful. Here are some tips to help you on your language-learning journey:"]
+    [:ul
+     [:li "Don't be afraid to attempt learning German. Everyone understands that it can be challenging, but making the effort goes a long way in building connections and enjoying your experience."]
+     [:li "Ask your German floormates if they can teach you. You'd be surprised at how much you can learn from casual conversations with locals."]
+     [:li "The key to language learning is comprehensive input. Surround yourself with the language in situations you can understand. Challenge yourself to ask questions in the local shop, print out the lyrics of a German song you like and translate every word, and more. Remember, you're your own teacher, and it should be an enjoyable process. Don't rush it; progress is more important than speed."]]
+    [:p "Learning a new language can be a rewarding adventure. Take it one step at a time, and you'll find yourself growing in competence and enjoying the process."]
+    [:figure
+     [:img {:src "images/learn_german.jpg" :alt "Learning German at the dorm"}]]]])
+
+(defn links-page []
+  [:section.section
+   [:h1.title "Useful Links"]
+   [:div.content
+    [:p "Here are some links that will be helpful during your stay at Bismarckstraße:"]
+    [:ul
+     [:li [:a {:href "https://stw-bonn.de/"} "Internet Access Information"]]
+     [:li [:a {:href "https://www.studierendenwerk-bonn.de/wohnen/unsere-wohnheime/wohnheim/bismarckstrasse-4-53113-bonn"} "Contact of Responsible Sachbearbeiter"]]
+     [:li [:a {:href "https://sv.stw-bonn.de/wp/"} "Understanding Mentor Roles"]]]
+    [:p "Additionally, remember that valuable information is often posted at the entrance door, so be sure to check there as well."]
+    [:figure
+     [:img {:src "images/links.jpg" :alt "Useful links at the dorm"}]]]])

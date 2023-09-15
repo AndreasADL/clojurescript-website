@@ -10,7 +10,14 @@
                  [org.clojure/clojurescript "1.11.4"]
                  [cljsjs/react "17.0.2-0"]
                  [cljsjs/react-dom "17.0.2-0"]
-                 [reagent "1.1.1" ]]
+                 [reagent "1.1.1" ]
+                ;;  main routing
+                 [metosin/reitit "0.5.11"]
+                ;;  data coercion / validation
+                 [metosin/reitit-spec "0.5.11"]
+                ;;  frontend routing
+                 [metosin/reitit-frontend "0.5.11"]
+                 ]
 
   :source-paths ["src"]
 
