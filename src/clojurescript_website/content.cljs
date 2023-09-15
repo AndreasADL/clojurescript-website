@@ -35,7 +35,7 @@
      ]
     ;; design choice: make a separate page for each? Or make a big state to plug into a page function...?
     [:figure
-     [:img {:src "images/bismarck.png"}]]
+     [:img.responsive {:src "images/bismarck.png"}]]
     ]])
 
 (defn website-title []
@@ -55,7 +55,7 @@
     [:p "Stay informed by joining our WhatsApp group and connecting with our Event Mentor."]
     [:p "For event details and schedules, check the information posted next to the entrance door."]
     [:figure
-     [:img {:src "images/events.jpg" :alt "Events at the dorm"}]]]])
+     [:img.responsive {:src "images/events.jpg" :alt "Events at the dorm"}]]]])
 
 (defn wifi-page []
   [:section.section
@@ -71,7 +71,7 @@
      [:li "For additional assistance, contact our internet mentors. You can find their details by the front door."]]
     [:p "Stay connected and enjoy your time at the dorm!"]
     [:figure
-     [:img {:src "images/wifi.jpg" :alt "Wi-Fi setup"}]]]])
+     [:img.responsive {:src "images/wifi.jpg" :alt "Wi-Fi setup"}]]]])
 
 (defn help-page []
   [:section.section
@@ -85,7 +85,7 @@
      [:li "For general inquiries and support, you can also reach out to Studierendenwerk, who provide services for students in need."]]
     [:p "Remember, we're here to make your stay comfortable and enjoyable. Don't hesitate to ask for help!"]
     [:figure
-     [:img {:src "images/help.jpg" :alt "Getting help at the dorm"}]]]])
+     [:img.responsive {:src "images/help.jpg" :alt "Getting help at the dorm"}]]]])
 
 (defn learn_german-page []
   [:section.section
@@ -98,17 +98,19 @@
      [:li "The key to language learning is comprehensive input. Surround yourself with the language in situations you can understand. Challenge yourself to ask questions in the local shop, print out the lyrics of a German song you like and translate every word, and more. Remember, you're your own teacher, and it should be an enjoyable process. Don't rush it; progress is more important than speed."]]
     [:p "Learning a new language can be a rewarding adventure. Take it one step at a time, and you'll find yourself growing in competence and enjoying the process."]
     [:figure
-     [:img {:src "images/learn_german.jpg" :alt "Learning German at the dorm"}]]]])
+     [:img.responsive {:src "images/learn_german.jpg" :alt "Learning German at the dorm"}]]]])
 
 (defn links-page []
   [:section.section
-   [:h1.title "Useful Links"]
-   [:div.content
-    [:p "Here are some links that will be helpful during your stay at Bismarckstraße:"]
-    [:ul
-     [:li [:a {:href "https://stw-bonn.de/"} "Internet Access Information"]]
-     [:li [:a {:href "https://www.studierendenwerk-bonn.de/wohnen/unsere-wohnheime/wohnheim/bismarckstrasse-4-53113-bonn"} "Contact of Responsible Sachbearbeiter"]]
-     [:li [:a {:href "https://sv.stw-bonn.de/wp/"} "Understanding Mentor Roles"]]]
-    [:p "Additionally, remember that valuable information is often posted at the entrance door, so be sure to check there as well."]
-    [:figure
-     [:img {:src "images/links.jpg" :alt "Useful links at the dorm"}]]]])
+    [:h1.title "Useful Links"]
+    [:div.content
+      [:p "Here are some links that will be helpful during your stay at Bismarckstraße:"]
+      [:ul
+        [:li [:a {:href "https://stw-bonn.de/"} "Internet Access Information"]]
+        [:li [:a {:href "https://www.studierendenwerk-bonn.de/wohnen/unsere-wohnheime/wohnheim/bismarckstrasse-4-53113-bonn"} "Contact of Responsible Sachbearbeiter"]]
+        [:li [:a {:href "https://sv.stw-bonn.de/wp/"} "Understanding Mentor Roles"]]
+      ]
+      [:p "Additionally, remember that valuable information is often posted at the entrance door, so be sure to check there as well."]
+      [:figure
+        [:img.responsive {:src "images/links.jpg" :alt "Useful links at the dorm"}]]]])
+
